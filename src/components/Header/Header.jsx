@@ -1,5 +1,5 @@
 "use client";
-import { Layout, Menu, Avatar } from "antd";
+import { Layout, Menu } from "antd";
 import React from "react";
 const { Header } = Layout;
 
