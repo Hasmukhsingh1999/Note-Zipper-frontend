@@ -6,3 +6,6 @@
   min-height: 350px;
 }
 
+.ant-card-head-title {
+  font-size: 3em;
+}
