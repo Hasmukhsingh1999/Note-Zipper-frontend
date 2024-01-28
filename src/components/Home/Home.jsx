@@ -75,7 +75,7 @@ const Home = () => {
     </div>
   );
   return (
-    <div className="min-h-[100vh] w-full p-12 bg-red-500 overflow-y-auto">
+    <div className="min-h-[100vh] w-full p-12  overflow-y-auto">
       {addMoreButton}
       <List
         className="demo-loadmore-list"
