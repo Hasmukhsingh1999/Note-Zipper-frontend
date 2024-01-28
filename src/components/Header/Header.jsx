@@ -1,5 +1,5 @@
 "use client";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Avatar } from "antd";
 import React from "react";
 const { Header } = Layout;
 
@@ -13,7 +13,6 @@ const Headers = () => {
           alignItems: "center",
         }}
       >
-        <div className="" />
         <Menu
           theme="dark"
           mode="horizontal"
@@ -22,7 +21,14 @@ const Headers = () => {
             minWidth: 0,
           }}
         >
-          <Menu.Item>Home</Menu.Item>
+          <div>
+            <Menu.Item>Home</Menu.Item>
+            <Menu.Item>My Notes</Menu.Item>
+          </div>
+          <div className="flex justify-end flex-1">
+            <Menu.Item>My Profile </Menu.Item>
+            <Menu.Item>Logout</Menu.Item>
+          </div>
         </Menu>
       </Header>
     </div>

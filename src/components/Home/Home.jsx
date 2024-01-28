@@ -71,11 +71,11 @@ const Home = () => {
   );
   const addMoreButton = (
     <div style={{ textAlign: "center", margin: "12px 0" }}>
-      <Button onClick={''}>Click to add more</Button>
+      <Button onClick={""}>Click to add more</Button>
     </div>
   );
   return (
-    <div className="min-h-[100vh] w-full p-12  overflow-y-auto">
+    <div className="h-screen w-full p-12 bg-rd">
       {addMoreButton}
       <List
         className="demo-loadmore-list"
