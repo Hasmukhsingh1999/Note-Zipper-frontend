@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.demo-loadmore-list {
+  min-height: 350px;
+}
