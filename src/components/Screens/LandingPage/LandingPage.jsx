@@ -1,16 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-const NavBarLink = ({ text }) => {
-  return <p className="text-[#393e46]">{text}</p>;
-};
+
 
 const LandingPage = () => {
   return (
     <div className="md:py-5 md:px-5 py-6 h-screen w-full relative bg-[#f0ece2]">
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
         <div className="flex gap-5">
-          <NavBarLink text="Home" />
+          <p className="text-4xl font-logo uppercase">Horny.</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
@@ -36,14 +34,14 @@ const LandingPage = () => {
           </div>
         </div>
       </nav>
-      <main className=" w-full md:min-h-[70vh] min-h-[80vh] flex items-center">
+      <main className=" w-full md:min-h-[70vh] min-h-[90vh] flex items-center">
         <div className="grid grid-cols-1 gap-3 px-9">
           <div className="w-full flex items-center justify-center">
             <h1 className=" font text-center text-[#9c3122] border-b-2 border-[#393e46] font-spacing">
               NOTES-ZIPPER
             </h1>
           </div>
-          <div className="h-[350px] w-full">
+          <div className="md:h-[350px] h-[450px] w-full">
             <img
               src="https://i.pinimg.com/564x/61/df/86/61df86c8957fc8f28fada223d3c9a057.jpg"
               alt="Notes Zipper Image"

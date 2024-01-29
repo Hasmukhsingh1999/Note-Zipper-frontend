@@ -17,18 +17,26 @@
   font-family: "Agatho_Regular";
   src: url("../../fonts/Agatho_Regular.otf");
 }
+@font-face {
+  font-family: "Agatho_Bold";
+  src: url("../../fonts/Agatho_\ BoldCAPS.otf");
+}
 
 body{
 background-color: #f0ece2;
 }
 :root {
   --font-agatho: "Agatho_Regular";
+  --font-bold:"Agatho_Bold"
 }
 
 .font {
   font-family: var(--font-agatho);
 }
 
+.font-logo{
+  font-family: var(--font-bold);
+}
 .font-spacing{
   letter-spacing:1.5vw;
   font-size:12vw ;
