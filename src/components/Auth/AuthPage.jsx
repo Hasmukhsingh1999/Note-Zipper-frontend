@@ -14,13 +14,23 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
   return (
     <div className="flex w-full">
       <div className="flex-auto w-32 h-screen bg-red-950">
-        <div className="w-full h-full">
-          <img
-            src="https://images.unsplash.com/photo-1584448097764-374f81551427?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            className="w-full h-full object-cover "
-            alt="Background"
-          />
-        </div>
+        {title === "Sign Up" ? (
+          <div className="w-full h-full">
+            <img
+              src="https://images.unsplash.com/photo-1584448033614-882b971a36f3?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              className="w-full h-full  object-cover"
+              alt="Background"
+            />
+          </div>
+        ) : (
+          <div className="w-full h-full">
+            <img
+              src="https://images.unsplash.com/photo-1584448097639-99cf648e8def?q=80&w=1955&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              className="w-full h-full object-cover "
+              alt="Background"
+            />
+          </div>
+        )}
       </div>
       <div className="flex-auto w-64 h-screen flex items-center justify-center">
         <Space direction="vertical" size={16}>
@@ -63,7 +73,8 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
                 </div>
               ) : (
                 <div>
-                  Already a user? <Link href={"/sign-in"}>Log into your account</Link>
+                  Already a user?{" "}
+                  <Link href={"/sign-in"}>Log into your account</Link>
                 </div>
               )}
               <button
