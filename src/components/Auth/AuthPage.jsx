@@ -13,7 +13,7 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
 
   return (
     <div className="flex w-full">
-      <div className="flex-auto w-32 h-screen bg-red-950">
+      <div className="flex-auto w-32 h-screen">
         {title === "Sign Up" ? (
           <div className="w-full h-full">
             <img
