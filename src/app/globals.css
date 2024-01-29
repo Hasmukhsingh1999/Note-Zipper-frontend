@@ -9,3 +9,29 @@
 .ant-card-head-title {
   font-size: 3em;
 }
+
+@font-face {
+  font-family: "Agatho_Regular";
+  src: url("../../fonts/Agatho_Regular.otf");
+}
+
+:root {
+  --font-agatho: "Agatho_Regular";
+}
+
+.font {
+  font-family: var(--font-agatho);
+}
+
+.font-spacing{
+  letter-spacing:1.5vw;
+  font-size:12vw ;
+}
+
+@media screen and (max-width: 768px) {
+  .font-spacing {
+    /* Adjust the values for smaller screens */
+    /* letter-spacing: 1vw; */
+    font-size: 10.3vw;
+  }
+}
