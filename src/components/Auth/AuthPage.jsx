@@ -6,8 +6,9 @@ import {
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
+import Link from "next/link";
 
-const AuthPage = ({ title, buttonLabel, onSubmit }) => {
+const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
@@ -31,7 +32,7 @@ const AuthPage = ({ title, buttonLabel, onSubmit }) => {
               boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 24px",
             }}
           >
-            {title === "Sign Up" && ( // Show email field only for Sign Up
+            {title === "Sign Up" && (
               <div className="text-left flex flex-col gap-3">
                 <label htmlFor="email">Email</label>
                 <Input id="email" placeholder="Enter your email" />
@@ -56,6 +57,15 @@ const AuthPage = ({ title, buttonLabel, onSubmit }) => {
                   }
                 />
               </div>
+              {isRegistered !== "Sign-up" ? (
+                <div>
+                  Not a user? <Link href={"/sign-up"}>Create account</Link>
+                </div>
+              ) : (
+                <div>
+                  Already a user? <Link href={"/sign-in"}>Log into your account</Link>
+                </div>
+              )}
               <button
                 className="p-2 bg-gray-800 text-white  hover:rounded-full transition duration-300"
                 onClick={onSubmit}

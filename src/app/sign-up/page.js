@@ -8,7 +8,7 @@ const page = () => {
   };
   return (
     <div>
-      <AuthPage title="Sign Up" buttonLabel="Sign Up" onSubmit={handleSignUp} />
+      <AuthPage title="Sign Up" buttonLabel="Sign Up" onSubmit={handleSignUp} isRegistered={'Sign-up'}/>
     </div>
   );
 };

@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import AuthPage from "@/components/Auth/AuthPage";
 import React from "react";
 
