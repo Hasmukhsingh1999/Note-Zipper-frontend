@@ -48,9 +48,9 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
         <Space direction="vertical" size={16}>
           <Card
             title={title}
-            
+            className="md:w-[450px] w-[340px] mx-auto"
             style={{
-              width: "100%",
+         
               textAlign: "center",
               boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 24px",
               backgroundColor: "#fcf8f3",
