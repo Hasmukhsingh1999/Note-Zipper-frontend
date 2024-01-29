@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { Card, Input, Space, Tooltip, Button } from "antd";
+import { Card, Input, Space } from "antd";
 import {
-  InfoCircleOutlined,
   UserOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
 
-const LoginPage = () => {
+const AuthPage = ({ title, buttonLabel, onSubmit }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
@@ -25,13 +24,19 @@ const LoginPage = () => {
       <div className="flex-auto w-64 h-screen flex items-center justify-center">
         <Space direction="vertical" size={16}>
           <Card
-            title="Sign In"
+            title={title}
             style={{
               width: 400,
               textAlign: "center",
               boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 24px",
             }}
           >
+            {title === "Sign Up" && ( // Show email field only for Sign Up
+              <div className="text-left flex flex-col gap-3">
+                <label htmlFor="email">Email</label>
+                <Input id="email" placeholder="Enter your email" />
+              </div>
+            )}
             <div className="grid grid-cols-1 gap-3">
               <div className="text-left flex flex-col gap-3">
                 <label htmlFor="username">Username</label>
@@ -46,13 +51,16 @@ const LoginPage = () => {
                 <Input.Password
                   id="password"
                   placeholder="Input password"
-                  iconRender={(visible) =>  
+                  iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
               </div>
-              <button className="p-2 bg-gray-800 text-white  hover:rounded-full transition duration-300">
-                Sign In
+              <button
+                className="p-2 bg-gray-800 text-white  hover:rounded-full transition duration-300"
+                onClick={onSubmit}
+              >
+                {buttonLabel}
               </button>
             </div>
           </Card>
@@ -62,4 +70,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AuthPage;
