@@ -9,12 +9,18 @@
 .ant-card-head-title {
   font-size: 3em;
 }
+.ant-card{
+  border-radius: 0px !important;
+}
 
 @font-face {
   font-family: "Agatho_Regular";
   src: url("../../fonts/Agatho_Regular.otf");
 }
 
+body{
+background-color: #f0ece2;
+}
 :root {
   --font-agatho: "Agatho_Regular";
 }
@@ -30,8 +36,10 @@
 
 @media screen and (max-width: 768px) {
   .font-spacing {
-    /* Adjust the values for smaller screens */
-    /* letter-spacing: 1vw; */
     font-size: 10.3vw;
   }
+  .ant-card-head-title {
+    font-size: 2em;
+  }
+
 }

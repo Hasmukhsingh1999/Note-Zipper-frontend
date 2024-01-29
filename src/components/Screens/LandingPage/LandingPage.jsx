@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const NavBarLink = ({ text }) => {
@@ -13,10 +14,11 @@ const LandingPage = () => {
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
-            <button className="border border-gray-950 rounded-full py-2 px-5 md:text-base text-xs">Login</button>
-            <button className="border border-gray-950 rounded-full py-2 px-5 md:text-base text-xs">Signup</button>
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
+              <Link href={'/sign-in'}>Login</Link></button>
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs"><Link href={'/sign-up'}>Signup</Link></button>
           </div>
-          <div className="p-3 border border-gray-950 rounded-full md:flex hidden">
+          <div className="p-3 border border-[#2a2438] rounded-full md:flex hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
