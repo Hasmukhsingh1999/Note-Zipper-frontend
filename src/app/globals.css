@@ -9,7 +9,7 @@
 .ant-card-head-title {
   font-size: 3em;
 }
-.ant-card{
+.ant-card {
   border-radius: 0px !important;
 }
 
@@ -22,25 +22,36 @@
   src: url("../../fonts/Agatho_\ BoldCAPS.otf");
 }
 
-body{
-background-color: #f0ece2;
+body {
+  background-color: #f0ece2;
 }
 :root {
   --font-agatho: "Agatho_Regular";
-  --font-bold:"Agatho_Bold"
+  --font-bold: "Agatho_Bold";
 }
 
 .font {
   font-family: var(--font-agatho);
 }
 
-.font-logo{
+.font-logo {
   font-family: var(--font-bold);
 }
-.font-spacing{
-  letter-spacing:1.5vw;
-  font-size:12vw ;
+.font-spacing {
+  letter-spacing: 1.5vw;
+  font-size: 12vw;
 }
+
+.ant-btn {
+  border-radius: 0px !important;
+}
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+
+  border-color: inherit !important;
+  color: white !important;
+}
+
 
 @media screen and (max-width: 768px) {
   .font-spacing {
@@ -49,5 +60,4 @@ background-color: #f0ece2;
   .ant-card-head-title {
     font-size: 2em;
   }
-
 }

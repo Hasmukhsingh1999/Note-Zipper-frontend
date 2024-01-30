@@ -1,36 +1,40 @@
 "use client";
-import { Layout, Menu } from "antd";
+import Link from "next/link";
 import React from "react";
-const { Header } = Layout;
+
 
 const Headers = () => {
   return (
-    <div>
+    <div className="md:py-5 md:px-5 py-6">
       {" "}
-      <Header
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
-        >
-          <div>
-            <Menu.Item>Home</Menu.Item>
-            <Menu.Item>My Notes</Menu.Item>
+      <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
+        <div className="flex gap-5">
+          <p className="text-4xl font-logo uppercase">Horny.</p>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
+              <Link href={'/sign-in'}>Login</Link></button>
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs"><Link href={'/sign-up'}>Signup</Link></button>
           </div>
-          <div className="flex justify-end flex-1">
-            <Menu.Item>My Profile </Menu.Item>
-            <Menu.Item>Logout</Menu.Item>
+          <div className="p-3 border border-[#2a2438] rounded-full md:flex hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 9h16.5m-16.5 6.75h16.5"
+              />
+            </svg>
           </div>
-        </Menu>
-      </Header>
+        </div>
+      </nav>
     </div>
   );
 };
