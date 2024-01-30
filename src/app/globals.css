@@ -5,6 +5,9 @@
 .demo-loadmore-list {
   min-height: 350px;
 }
+::-webkit-scrollbar{
+  display: none;
+}
 
 .ant-card-head-title {
   font-size: 3em;
@@ -47,9 +50,12 @@ body {
 }
 
 .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
-
   border-color: inherit !important;
   color: white !important;
+}
+
+.ant-list-items {
+  overflow-y: auto;
 }
 
 

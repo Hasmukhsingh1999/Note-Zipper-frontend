@@ -66,37 +66,53 @@ const Home = () => {
   };
 
   const loadMoreButton = !initLoading && !loading && (
-    <div style={{ textAlign: "center", margin: "20px 0" }}>
-      <button onClick={onLoadMore}  className="p-2 px-5 border-gray-800 border hover:rounded-full transition duration-300">
+    <div style={{ margin: "20px 0" }}>
+      <button
+        onClick={onLoadMore}
+        className="p-2 px-5 border-gray-800 border hover:rounded-full transition duration-300"
+      >
         Load More
       </button>
     </div>
   );
   const addMoreButton = (
     <div style={{ margin: "12px 0", padding: "2px" }}>
-      <button onClick={""}  className="p-2 px-5 border-gray-800 border  hover:rounded-full transition duration-300">
+      <button
+        onClick={""}
+        className="p-2 px-5 border-gray-800 border  hover:rounded-full transition duration-300"
+      >
         Click to add more
       </button>
     </div>
   );
   return (
-    <div className="h-screen w-full  ">
+    <div className="min-h-screen w-full bg-red-500 ">
       <Headers />
-      <div className="p-12">
-        {addMoreButton}
+      <div className="px-12 p-3 overflow-y-auto min-h-auto">
+        <div className="flex gap-5 items-center w-full justify-between">
+          <p className="font-logo text-8xl">NOTES</p>
+          {addMoreButton}
+        </div>
         <List
-          className="demo-loadmore-list mt-5"
+          className="demo-loadmore-list mt-5 "
           loading={initLoading}
           itemLayout="horizontal"
           loadMore={loadMoreButton}
           dataSource={list}
           renderItem={(item) => (
-            <List.Item actions={generateActions()}>
+            <List.Item
+              actions={generateActions()}
+              style={{
+        
+                backgroundColor:"green"
+              }}
+            >
               <Skeleton avatar title={false} loading={item.loading} active>
                 <List.Item.Meta
                   avatar={<Avatar src={item.picture.large} />}
                   title={<a href="https://ant.design">{item.name?.last}</a>}
                   description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                  className="bg-slate-800 p-4"
                 />
                 <div>content</div>
               </Skeleton>
