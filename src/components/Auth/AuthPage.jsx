@@ -35,30 +35,54 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
     <div className="flex w-full">
       <div className="flex-auto md:w-32 w-full h-screen md:flex hidden">
         <div className="w-full h-full">
-          <img src={backgroundImageUrl} className="w-full h-full object-cover" alt="Background" />
+          <img
+            src={backgroundImageUrl}
+            className="w-full h-full object-cover"
+            alt="Background"
+          />
         </div>
       </div>
       <div className="flex-auto w-64 h-screen flex items-center justify-center relative">
-        <img src={backgroundImageUrl} className="w-full h-full object-cover absolute md:hidden" alt="Background" style={imageStyle} />
+        <img
+          src={backgroundImageUrl}
+          className="w-full h-full object-cover absolute md:hidden"
+          alt="Background"
+          style={imageStyle}
+        />
         <Space direction="vertical" size={16}>
-          <Card title={title} className="md:w-[450px] w-[340px] mx-auto" style={cardStyle}>
+          <Card
+            title={title}
+            className="md:w-[450px] w-[340px] mx-auto"
+            style={cardStyle}
+          >
             <div className="grid grid-cols-1 gap-4">
               {title === "Sign Up" && (
                 <div className="text-left flex flex-col gap-2">
                   <label htmlFor="email">Email</label>
-                  <Input id="email" placeholder="Enter your email" className="bg-transparent" />
+                  <Input
+                    id="email"
+                    placeholder="Enter your email"
+                    className="bg-transparent"
+                  />
                 </div>
               )}
               <div className="text-left flex flex-col gap-2">
                 <label htmlFor="username">Username</label>
-                <Input id="username" placeholder="Enter your username" prefix={<UserOutlined className="site-form-item-icon" />} className="bg-transparent" />
+                <Input
+                  id="username"
+                  placeholder="Enter your username"
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  className="bg-transparent"
+                />
               </div>
               <div className="text-left flex flex-col gap-2">
                 <label htmlFor="password">Password</label>
                 <Input.Password
                   id="password"
                   placeholder="Input password"
-                  iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                   className="bg-transparent"
                 />
               </div>
@@ -69,12 +93,16 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
                   </>
                 ) : (
                   <>
-                    Already a user? <Link href={"/sign-in"}>Log into your account</Link>
+                    Already a user?{" "}
+                    <Link href={"/sign-in"}>Log into your account</Link>
                   </>
                 )}
               </div>
-              <button className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300" onClick={onSubmit}>
-                {buttonLabel}
+              <button
+                className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300"
+                onClick={onSubmit}
+              >
+                <Link href={'/Home'}>{buttonLabel}</Link>
               </button>
             </div>
           </Card>
