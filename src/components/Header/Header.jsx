@@ -2,20 +2,24 @@
 import Link from "next/link";
 import React from "react";
 
-
 const Headers = () => {
   return (
     <div className="md:py-5 md:px-5 py-6">
       {" "}
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
         <div className="flex gap-5">
-          <p className="text-4xl font-logo uppercase">Horny.</p>
+          <Link href={'/'}>
+            <p className="text-4xl font-logo uppercase cursor-pointer">Horny.</p>
+          </Link>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
             <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
-              <Link href={'/sign-in'}>Login</Link></button>
-            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs"><Link href={'/sign-up'}>Signup</Link></button>
+              <Link href={"/sign-in"}>Login</Link>
+            </button>
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
+              <Link href={"/sign-up"}>Signup</Link>
+            </button>
           </div>
           <div className="p-3 border border-[#2a2438] rounded-full md:flex hidden">
             <svg
