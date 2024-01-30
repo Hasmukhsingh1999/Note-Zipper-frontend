@@ -1,20 +1,22 @@
+import Headers from "@/components/Header/Header";
 import Link from "next/link";
 import React from "react";
-
-
 
 const LandingPage = () => {
   return (
     <div className="md:py-5 md:px-5 py-6 h-screen w-full relative bg-[#f0ece2]">
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
         <div className="flex gap-5">
-          <p className="text-4xl font-logo uppercase">Horny.</p>
+          <p className="text-4xl font-logo uppercase">Desire.</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
             <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
-              <Link href={'/sign-in'}>Login</Link></button>
-            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs"><Link href={'/sign-up'}>Signup</Link></button>
+              <Link href={"/sign-in"}>Login</Link>
+            </button>
+            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
+              <Link href={"/sign-up"}>Signup</Link>
+            </button>
           </div>
           <div className="p-3 border border-[#2a2438] rounded-full md:flex hidden">
             <svg
@@ -34,6 +36,7 @@ const LandingPage = () => {
           </div>
         </div>
       </nav>
+
       <main className=" w-full md:min-h-[70vh] min-h-[90vh] flex items-center">
         <div className="grid grid-cols-1 gap-3 px-9">
           <div className="w-full flex items-center justify-center">

@@ -9,7 +9,7 @@ const Headers = () => {
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
         <div className="flex gap-5">
           <Link href={'/'}>
-            <p className="text-4xl font-logo uppercase cursor-pointer">Horny.</p>
+            <p className="text-4xl font-logo uppercase cursor-pointer">Desire.</p>
           </Link>
         </div>
         <div className="flex items-center gap-4">
