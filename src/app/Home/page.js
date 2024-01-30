@@ -67,16 +67,16 @@ const Home = () => {
 
   const loadMoreButton = !initLoading && !loading && (
     <div style={{ textAlign: "center", margin: "20px 0" }}>
-      <Button onClick={onLoadMore} className="bg-gray-800 text-white">
+      <button onClick={onLoadMore}  className="p-2 px-5 border-gray-800 border hover:rounded-full transition duration-300">
         Load More
-      </Button>
+      </button>
     </div>
   );
   const addMoreButton = (
     <div style={{ margin: "12px 0", padding: "2px" }}>
-      <Button onClick={""} className="bg-gray-800 text-white ">
+      <button onClick={""}  className="p-2 px-5 border-gray-800 border  hover:rounded-full transition duration-300">
         Click to add more
-      </Button>
+      </button>
     </div>
   );
   return (
