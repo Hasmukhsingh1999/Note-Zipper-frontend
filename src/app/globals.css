@@ -66,4 +66,19 @@ body {
   .ant-card-head-title {
     font-size: 2em;
   }
+  .ant-list-item{
+   
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ant-list-item-meta{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: aqua;
+  }
 }

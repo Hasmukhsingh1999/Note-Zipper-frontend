@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Button, List, Skeleton } from "antd";
 import Headers from "@/components/Header/Header";
+import NotesCard from "@/components/Notes-Card/Notes-card";
 
 const API_URL = "https://randomuser.me/api/";
 const RESULTS_COUNT = 3;
@@ -69,7 +70,7 @@ const Home = () => {
     <div style={{ margin: "20px 0" }}>
       <button
         onClick={onLoadMore}
-        className="p-2 px-5 border-gray-800 border hover:rounded-full transition duration-300"
+        className="p-2 px-5 border-gray-800 border hover:rounded-full transition-all duration-300 ease-out"
       >
         Load More
       </button>
@@ -79,46 +80,22 @@ const Home = () => {
     <div style={{ margin: "12px 0", padding: "2px" }}>
       <button
         onClick={""}
-        className="p-2 px-5 border-gray-800 border  hover:rounded-full transition duration-300"
+        className="p-2 px-5 border-gray-800 border  hover:rounded-full transition-all duration-300 ease-out"
       >
         Click to add more
       </button>
     </div>
   );
   return (
-    <div className="min-h-screen w-full bg-red-500 ">
+    <div className="min-h-screen w-full ">
       <Headers />
       <div className="px-12 p-3 overflow-y-auto min-h-auto">
-        <div className="flex gap-5 items-center w-full justify-between">
-          <p className="font-logo text-8xl">NOTES</p>
+        <div className="flex md:flex-row flex-col gap-5 md:items-center items-start w-full justify-between">
+          <p className="font-logo md:text-8xl text-6xl">NOTES</p>
           {addMoreButton}
         </div>
-        <List
-          className="demo-loadmore-list mt-5 "
-          loading={initLoading}
-          itemLayout="horizontal"
-          loadMore={loadMoreButton}
-          dataSource={list}
-          renderItem={(item) => (
-            <List.Item
-              actions={generateActions()}
-              style={{
-        
-                backgroundColor:"green"
-              }}
-            >
-              <Skeleton avatar title={false} loading={item.loading} active>
-                <List.Item.Meta
-                  avatar={<Avatar src={item.picture.large} />}
-                  title={<a href="https://ant.design">{item.name?.last}</a>}
-                  description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                  className="bg-slate-800 p-4"
-                />
-                <div>content</div>
-              </Skeleton>
-            </List.Item>
-          )}
-        />
+        <NotesCard data={list}/>
+        {loadMoreButton}
       </div>
     </div>
   );
