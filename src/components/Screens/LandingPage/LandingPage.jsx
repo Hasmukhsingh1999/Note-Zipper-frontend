@@ -1,31 +1,10 @@
-"use client";
-import { useLazyGetUsersQuery } from "@/api/user-api";
-import Headers from "@/components/Header/Header";
+
+
 import Link from "next/link";
 import React, { useEffect } from "react";
 
 const LandingPage = () => {
-  const [getUsers, { data, error }] = useLazyGetUsersQuery();
-
-  const fetchData = async () => {
-    try {
-      const res = await getUsers();
-      console.log("Data fetched successfully:", res);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    console.log("Effect triggered");
-    if (data) {
-      console.log("User Data:", data);
-    }
-    if (error) {
-      console.error("Error in data fetching:", error);
-    }
-    fetchData();
-  }, [data, error]);
+  
   return (
     <div className="md:py-5 md:px-5 py-6 h-screen w-full relative bg-[#f0ece2]">
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
