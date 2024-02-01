@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Button, List, Skeleton } from "antd";
 import Headers from "@/components/Header/Header";
 import NotesCard from "@/components/Notes-Card/Notes-card";
+import axios from "axios";
 
 const API_URL = "https://randomuser.me/api/";
 const RESULTS_COUNT = 3;
@@ -27,12 +28,16 @@ const Home = () => {
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
-        const results = await fetchData(
-          `${API_URL}?results=${RESULTS_COUNT}&inc=name,gender,email,nat,picture&noinfo`
-        );
+        // const results = await fetchData(
+        //   `${API_URL}?results=${RESULTS_COUNT}&inc=name,gender,email,nat,picture&noinfo`
+        // );
+        const results = await axios.get(`http://localhost:8000/api/notes`)
+        console.log(results.data)
+
         setInitLoading(false);
-        setData(results);
-        setList(results);
+
+        setData(results.data);
+        setList(results.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
