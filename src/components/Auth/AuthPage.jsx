@@ -8,9 +8,11 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useCreateUserMutation } from "@/api/auth-api";
 
 const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [createUser, { data }] = useCreateUserMutation();
   const router = useRouter();
 
   const backgroundImageUrl =
@@ -33,17 +35,25 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
     objectFit: "cover",
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Perform your login logic here
     // For example, you can check the user's credentials and set some authentication state
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    if (!username && !password) {
+    const email = document.getElementById("email").value;
+    if (!username && !password && !email) {
       return message.error("Please enter both username and password.");
     }
 
-    // After successful login, redirect the user to the desired page
-    router.push("/Home");
+    try {
+      const result = await createUser({ username, email, password });
+      message.success("Successfully Register");
+      router.push("/Home");
+    } catch (error) {
+      console.log("Error creating user", error);
+    }
+
+
   };
 
   return (
