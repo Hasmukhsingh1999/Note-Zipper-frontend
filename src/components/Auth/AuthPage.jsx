@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { Card, Input, Space } from "antd";
+import { Card, Input, Space, message } from "antd";
 import {
   UserOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const router = useRouter();
 
   const backgroundImageUrl =
     title === "Sign Up"
@@ -29,6 +31,19 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+  };
+
+  const handleLogin = () => {
+    // Perform your login logic here
+    // For example, you can check the user's credentials and set some authentication state
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    if (!username && !password) {
+      return message.error("Please enter both username and password.");
+    }
+
+    // After successful login, redirect the user to the desired page
+    router.push("/Home");
   };
 
   return (
@@ -100,9 +115,9 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
               </div>
               <button
                 className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300"
-                onClick={onSubmit}
+                onClick={isRegistered === "Sign-up" ? onSubmit : handleLogin}
               >
-                <Link href={'/Home'}>{buttonLabel}</Link>
+                {buttonLabel}
               </button>
             </div>
           </Card>
