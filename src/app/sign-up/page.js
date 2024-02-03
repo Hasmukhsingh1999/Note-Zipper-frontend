@@ -9,20 +9,26 @@ import {
   EyeTwoTone,
 } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
   const [createUser] = useCreateUserMutation();
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleSignUp = async ({ name, email, password }) => {
+  const router = useRouter();
+
+  const handleSignUp = async () => {
     try {
-      const axiosResult = await axios.post("http://localhost:8000/api/users", {
-        name,
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      await axios.post("http://localhost:8000/api/users", {
+        name: username, // Assuming the backend expects 'name' instead of 'username'
         email,
         password,
       });
-      console.log("Axios request result:", axiosResult.data);
-      console.log("User created successfully:", result);
+
+      router.push('/Home')
     } catch (error) {
       console.error("Error creating user:", error);
     }

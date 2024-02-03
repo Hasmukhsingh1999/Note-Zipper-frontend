@@ -5,15 +5,6 @@ import Headers from "@/components/Header/Header";
 import NotesCard from "@/components/Notes-Card/Notes-card";
 import axios from "axios";
 
-const API_URL = "https://randomuser.me/api/";
-const RESULTS_COUNT = 3;
-
-const fetchData = async (url) => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.results;
-};
-
 const generateActions = () => [
   <a key="list-loadmore-edit">edit</a>,
   <a key="list-loadmore-more">more</a>,
@@ -25,51 +16,30 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
 
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        // const results = await fetchData(
-        //   `${API_URL}?results=${RESULTS_COUNT}&inc=name,gender,email,nat,picture&noinfo`
-        // );
-        const results = await axios.get(`http://localhost:8000/api/notes`)
-        console.log(results.data)
+  // const onLoadMore = async () => {
+  //   setLoading(true);
+  //   setList((prevList) => [
+  //     ...prevList,
+  //     ...Array.from({ length: RESULTS_COUNT }, () => ({
+  //       loading: true,
+  //       name: {},
+  //       picture: {},
+  //     })),
+  //   ]);
 
-        setInitLoading(false);
-
-        setData(results.data);
-        setList(results.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchInitialData();
-  }, []);
-
-  const onLoadMore = async () => {
-    setLoading(true);
-    setList((prevList) => [
-      ...prevList,
-      ...Array.from({ length: RESULTS_COUNT }, () => ({
-        loading: true,
-        name: {},
-        picture: {},
-      })),
-    ]);
-
-    try {
-      const moreData = await fetchData(
-        `${API_URL}?results=${RESULTS_COUNT}&inc=name,gender,email,nat,picture&noinfo`
-      );
-      const newData = [...data, ...moreData];
-      setData(newData);
-      setList(newData);
-      setLoading(false);
-      window.dispatchEvent(new Event("resize"));
-    } catch (error) {
-      console.error("Error fetching more data:", error);
-    }
-  };
+  //   try {
+  //     const moreData = await fetchData(
+  //       `${API_URL}?results=${RESULTS_COUNT}&inc=name,gender,email,nat,picture&noinfo`
+  //     );
+  //     const newData = [...data, ...moreData];
+  //     setData(newData);
+  //     setList(newData);
+  //     setLoading(false);
+  //     window.dispatchEvent(new Event("resize"));
+  //   } catch (error) {
+  //     console.error("Error fetching more data:", error);
+  //   }
+  // };
 
   const loadMoreButton = !initLoading && !loading && (
     <div style={{ margin: "20px 0" }}>
@@ -99,7 +69,7 @@ const Home = () => {
           <p className="font-logo md:text-8xl text-6xl">NOTES</p>
           {addMoreButton}
         </div>
-        <NotesCard data={list}/>
+        <NotesCard data={list} />
         {loadMoreButton}
       </div>
     </div>
