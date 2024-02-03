@@ -1,23 +1,11 @@
-"use client";
+"use client"
+import { useState } from "react";
+import { Input, Space, Card } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
-import { useCreateUserMutation } from "@/api/auth-api";
-import AuthPage from "@/components/Auth/AuthPage";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { Card, Input, Space, message } from "antd";
-import {
-  UserOutlined,
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-} from "@ant-design/icons";
-import Link from "next/link";
-const page = () => {
+const Page = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleSignIn = () => {
-    console.log("Sign In clicked");
-  };
   const backgroundImageUrl =
     "https://images.unsplash.com/photo-1584448097639-99cf648e8def?q=80&w=1955&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
@@ -26,7 +14,6 @@ const page = () => {
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
     backgroundColor: "#fcf8f3",
   };
-
   const imageStyle = {
     position: "absolute",
     top: 0,
@@ -56,22 +43,19 @@ const page = () => {
         />
         <Space direction="vertical" size={16}>
           <Card
-            title={"Sign In"}
+            title="Sign In"
             className="md:w-[450px] w-[340px] mx-auto"
             style={cardStyle}
           >
             <div className="grid grid-cols-1 gap-4">
-              <>
-                <div className="text-left flex flex-col gap-2">
-                  <label htmlFor="email">Email</label>
-                  <Input
-                    id="email"
-                    placeholder="Enter your email"
-                    className="bg-transparent"
-                  />
-                </div>
-              </>
-
+              <div className="text-left flex flex-col gap-2">
+                <label htmlFor="email">Email</label>
+                <Input
+                  id="email"
+                  placeholder="Enter your email"
+                  className="bg-transparent"
+                />
+              </div>
               <div className="text-left flex flex-col gap-2">
                 <label htmlFor="password">Password</label>
                 <Input.Password
@@ -86,7 +70,7 @@ const page = () => {
               <div></div>
               <button
                 className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300"
-                onClick={""}
+                onClick={() => console.log("Sign In clicked")}
               >
                 Sign In
               </button>
@@ -98,4 +82,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

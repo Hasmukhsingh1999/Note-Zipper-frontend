@@ -1,45 +1,32 @@
 "use client";
+import { useState } from "react";
 import { useCreateUserMutation } from "@/api/auth-api";
-import AuthPage from "@/components/Auth/AuthPage";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { Card, Input, Space, message } from "antd";
+import { Card, Input, Space } from "antd";
 import {
   UserOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
 import Link from "next/link";
-const page = () => {
-  const [createUser, { data }] = useCreateUserMutation();
+
+const Page = () => {
+  const [createUser] = useCreateUserMutation();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const handleSignUp = async ({ name, email, password }) => {
     try {
-      // Make the API call to create a new user
-      // const result = await createUser({
-      //   username,
-      //   email,
-      //   password,
-      // });
-
       const axiosResult = await axios.post("http://localhost:8000/api/users", {
-        // Add the necessary data or parameters for your request
         name,
         email,
         password,
       });
-
-      // Handle the result of the Axios request
       console.log("Axios request result:", axiosResult.data);
-      // Handle success, e.g., redirect to a new page
       console.log("User created successfully:", result);
     } catch (error) {
-      // Handle errors, e.g., show an error message to the user
       console.error("Error creating user:", error);
     }
   };
-
-  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const backgroundImageUrl =
     "https://images.unsplash.com/photo-1584448033614-882b971a36f3?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -79,22 +66,19 @@ const page = () => {
         />
         <Space direction="vertical" size={16}>
           <Card
-            title={"Sign Up"}
+            title="Sign Up"
             className="md:w-[450px] w-[340px] mx-auto"
             style={cardStyle}
           >
             <div className="grid grid-cols-1 gap-4">
-              <>
-                <div className="text-left flex flex-col gap-2">
-                  <label htmlFor="email">Email</label>
-                  <Input
-                    id="email"
-                    placeholder="Enter your email"
-                    className="bg-transparent"
-                  />
-                </div>
-              </>
-
+              <div className="text-left flex flex-col gap-2">
+                <label htmlFor="email">Email</label>
+                <Input
+                  id="email"
+                  placeholder="Enter your email"
+                  className="bg-transparent"
+                />
+              </div>
               <div className="text-left flex flex-col gap-2">
                 <label htmlFor="username">Username</label>
                 <Input
@@ -117,11 +101,11 @@ const page = () => {
               </div>
               <div>
                 Already a user?{" "}
-                <Link href={"/sign-in"}>Log into your account</Link>
+                <Link href="/sign-in">Log into your account</Link>
               </div>
               <button
                 className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300"
-                onClick={""}
+                onClick={handleSignUp}
               >
                 Sign Up
               </button>
@@ -133,4 +117,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
