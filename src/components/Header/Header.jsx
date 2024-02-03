@@ -18,7 +18,6 @@ const Headers = () => {
     try {
       await axios.get("http://localhost:8080/api/logout");
       localStorage.removeItem("user");
-
       router.push("/sign-in");
     } catch (error) {
       console.log(error);
