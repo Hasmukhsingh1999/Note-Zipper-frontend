@@ -28,7 +28,10 @@ const Page = () => {
         password,
       });
 
-      router.push('/Home')
+      const user = { username, email };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      router.push("/Home");
     } catch (error) {
       console.error("Error creating user:", error);
     }

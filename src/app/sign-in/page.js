@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Input, Space, Card } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import Link from "next/link";
+
 
 const Page = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -67,7 +69,9 @@ const Page = () => {
                   className="bg-transparent"
                 />
               </div>
-              <div></div>
+              <div>
+                Not a user? <Link href="/sign-up">Create account</Link>
+              </div>
               <button
                 className="p-2 bg-gray-800 text-white hover:rounded-full transition duration-300"
                 onClick={() => console.log("Sign In clicked")}

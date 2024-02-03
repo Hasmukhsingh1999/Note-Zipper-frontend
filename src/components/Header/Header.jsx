@@ -1,25 +1,53 @@
 "use client";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Headers = () => {
+  const [userDisplay, setUser] = useState();
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      console.log(user.username);
+      setUser(user.username);
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("http://localhost:8080/api/logout");
+      localStorage.removeItem("user");
+
+      router.push("/sign-in");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="md:py-5 md:px-5 py-6">
       {" "}
       <nav className=" w-full py-1 md:px-9 px-5 flex items-center justify-between">
         <div className="flex gap-5">
-          <Link href={'/'}>
-            <p className="text-4xl font-logo uppercase cursor-pointer">Desire.</p>
+          <Link href={"/"}>
+            <p className="text-4xl font-logo uppercase cursor-pointer">
+              Desire.
+            </p>
           </Link>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
-            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
-              <Link href={"/sign-in"}>Login</Link>
-            </button>
-            <button className="border border-[#2a2438] rounded-full py-2 px-5 md:text-base text-xs">
-              <Link href={"/sign-up"}>Signup</Link>
-            </button>
+            <div className=" md:text-base text-xs font-semibold">
+              <Link href={"/sign-up"} className="uppercase">
+                {userDisplay}
+              </Link>
+            </div>
+            <div className="  md:text-base text-xs">
+              <Link href={"/sign-in"} onClick={handleLogout}>
+                Logout
+              </Link>
+            </div>
           </div>
           <div className="p-3 border border-[#2a2438] rounded-full md:flex hidden">
             <svg
