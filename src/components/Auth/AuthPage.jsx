@@ -38,23 +38,7 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
   const handleLogin = async () => {
     // Perform your login logic here
     // For example, you can check the user's credentials and set some authentication state
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const email = document.getElementById("email").value;
-    if (!username && !password && !email) {
-      return message.error("Please enter both username and password.");
-    }
-
-    if (isRegistered === "Sign-up") {
-      // Call SignUp logic
-      await createUser({ username, email, password });
-      message.success("Successfully Registered");
-      router.push("/Home");
-    } else {
-      // Call SignIn logic
-      // Add your Sign In logic here
-      console.log("Sign In logic here");
-    }
+   
   };
 
 
