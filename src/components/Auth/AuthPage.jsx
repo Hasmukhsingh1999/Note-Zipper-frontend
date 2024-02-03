@@ -45,16 +45,18 @@ const AuthPage = ({ title, buttonLabel, onSubmit, isRegistered }) => {
       return message.error("Please enter both username and password.");
     }
 
-    try {
-      const result = await createUser({ username, email, password });
-      message.success("Successfully Register");
+    if (isRegistered === "Sign-up") {
+      // Call SignUp logic
+      await createUser({ username, email, password });
+      message.success("Successfully Registered");
       router.push("/Home");
-    } catch (error) {
-      console.log("Error creating user", error);
+    } else {
+      // Call SignIn logic
+      // Add your Sign In logic here
+      console.log("Sign In logic here");
     }
-
-
   };
+
 
   return (
     <div className="flex w-full">
